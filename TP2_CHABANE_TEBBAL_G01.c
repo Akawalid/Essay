@@ -49,7 +49,20 @@ char fichBres[cchaine] = "(null)";
 //La cl� du codage et de d�codage.
 int addtocomit = 2;
 char key[cchaine];
+static void
+__fill_text_info (void)
+{
+    CONSOLE_SCREEN_BUFFER_INFO info;
 
+    GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &info);
+    __CONIO_LEFT = info.srWindow.Left;
+    __CONIO_TOP = info.srWindow.Top;
+    __text_info.curx = info.dwCursorPosition.X - __CONIO_LEFT + 1;
+    __text_info.cury = info.dwCursorPosition.Y - __CONIO_TOP  + 1;
+    __text_info.attribute = info.wAttributes;
+    __text_info.screenwidth  = info.srWindow.Right - info.srWindow.Left + 1;
+    __text_info.screenheight = info.srWindow.Bottom - info.srWindow.Top + 1;
+}
 
 int OuvrireInd( char Name[ cchaine ], char mode){
     //Ouverture d'index
