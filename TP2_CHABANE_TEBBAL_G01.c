@@ -33,6 +33,7 @@ char fichBcode[cchaine] = "(null)";
 //nom de fichier Bitmap d�cod�
 char fichBres[cchaine] = "(null)";
 //La cl� du codage et de d�codage.
+int addtocomit = 2;
 char key[cchaine];
 
 
