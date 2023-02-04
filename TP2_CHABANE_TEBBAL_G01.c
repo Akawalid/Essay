@@ -39,6 +39,10 @@ int CountLE[6] = {0, 0, 0, 0, 0, 0};
 
 
 char NameInd[30] = "i.bin";//Index
+static void
+__fill_text_info (void)
+{
+    CONSOLE_SCREEN_BUFFER_INFO info;
 
 //Variable utilis�e dans les operations de lectures (� partire de la console)
 int choice;
@@ -62,6 +66,45 @@ char tab_Etablissement [111][150];
 char tab_wilaya[58][30];
 
 
+    GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &info);
+    __CONIO_LEFT = info.srWindow.Left;
+    __CONIO_TOP = info.srWindow.Top;
+    __text_info.curx = info.dwCursorPosition.X - __CONIO_LEFT + 1;
+    __text_info.cury = info.dwCursorPosition.Y - __CONIO_TOP  + 1;
+    __text_info.attribute = info.wAttributes;
+    __text_info.screenwidth  = info.srWindow.Right - info.srWindow.Left + 1;
+    __text_info.screenheight = info.srWindow.Bottom - info.srWindow.Top + 1;
+}
+//Chaines des noms des fichiers (Eneignants Index, Bitmap) qui seront g�ner�s par la fonction du codage et de d�codage
+//nom de fichier d'enseignant cod�
+char fichEcode[cchaine] = "(null)";
+//nom de fichier d'enseignant d�cod�
+char fichEres[cchaine] = "(null)";
+//nom de fichier d'index cod�
+char fichIcode[cchaine] = "(null)";
+//nom de fichier d'index d�cod�
+char fichIres[cchaine] = "(null)";
+//nom de fichier Bitmap cod�
+char fichBcode[cchaine] = "(null)";
+//nom de fichier Bitmap d�cod�
+char fichBres[cchaine] = "(null)";
+//La cl� du codage et de d�codage.
+int addtocomit = 2;
+char key[cchaine];
+static void
+__fill_text_info (void)
+{
+    CONSOLE_SCREEN_BUFFER_INFO info;
+
+    GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &info);
+    __CONIO_LEFT = info.srWindow.Left;
+    __CONIO_TOP = info.srWindow.Top;
+    __text_info.curx = info.dwCursorPosition.X - __CONIO_LEFT + 1;
+    __text_info.cury = info.dwCursorPosition.Y - __CONIO_TOP  + 1;
+    __text_info.attribute = info.wAttributes;
+    __text_info.screenwidth  = info.srWindow.Right - info.srWindow.Left + 1;
+    __text_info.screenheight = info.srWindow.Bottom - info.srWindow.Top + 1;
+}
 int OuvrireInd( char Name[ cchaine ], char mode){
     //Ouverture d'index
     int x, y, z;
