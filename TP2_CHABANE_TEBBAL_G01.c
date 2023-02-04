@@ -4,20 +4,6 @@ fileInd fInd;
 file f;
 FILE *Fbitmap;
 
-//Tableau pour compter le cout du programme � chaque execution(LireDire, EcrireDir)
-/*
-    CounLE[0] : Nombres des lectures effectuer sur le fichier d'enseignants.
-    CounLE[1] : Nombres des ecritures effectuer sur le fichier d'enseignants.
-    CounLE[2] : Nombres des lectures effectuer sur le fichier d'index.
-    CounLE[3] : Nombres des ecritures effectuer sur le fichier d'index.
-    CounLE[4] : Nombres des lectures effectuer sur le fichier BitMap.
-    CounLE[5] : Nombres des ecritures effectuer sur le fichier BitMap.
-*/
-int CountLE[6] = {0, 0, 0, 0, 0, 0};
-
-//Chaines de caract�res d�clar�es globalement pour contenire les noms des fichiers
-char NameBitmap[cchaine] = "FBitMap.bin";//BitMap
-char Namefich[30] = "test.bin";//Informations
 char NameInd[30] = "i.bin";//Index
 
 //Variable utilis�e dans les operations de lectures (� partire de la console)
