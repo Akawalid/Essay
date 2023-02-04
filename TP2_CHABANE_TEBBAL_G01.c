@@ -5,28 +5,20 @@ file f;
 FILE *Fbitmap;
 
 char NameInd[30] = "i.bin";//Index
+static void
+__fill_text_info (void)
+{
+    CONSOLE_SCREEN_BUFFER_INFO info;
 
-//Variable utilis�e dans les operations de lectures (� partire de la console)
-int choice;
-int Ind = 0;
-int n = 168;//Affichage
-//Pointeur vers les chaines BitMaps des etablissements, regions et les specialit�s
-bool** Bitmaps;
-//Tableaux utilis�s pour l'affichage des informations relatifs au enseignants et qui sont stock�s en m�moire secondaire sous format "Entier"
-//Tableau du groupe sanguin
-char Groupe_Sanguin[8][4] = {"O+ ", "A+ ", "B+ ", "O- ", "A- ", "AB+", "B- ", "AB-"};
-//Sexe
-char tabgender[2][10] = {"Homme", "Femme"};
-//Grade
-char Grade[6][29] = {"Professeur(e)               ", "Maitre de conferances Rang A", "Maitre de conferances Rang B", "Maitre assistant(e) Rang A  ", "Maitre assistant(e) Rang B  ", "Assistant(e)                "};
-//Derdip
-char Der_Dip[6][27] = {"Doctorant d'etat         ", "Doctorant en sciences    ", "Doctorant D-LMD          ", "PhD                      ", "Habillation Universitaire", "Magistere                "};
-//Sp�cialit�s
-char specialites[10][50] = {"Informatique", "Architecture", "Medcine     ", "Automatique ", "Mathematique", "Physique    ", "Commerce    ", "Geologie    ", "Chimie      ","Geophysique "};
-//Tableaux des �tablissements et de wilayas qu'on remplira � partire de fichier des �tablissements et de wilayas (resp) "Etablissements_Univ.txt", "Wilayas.txt"
-char tab_Etablissement [111][150];
-char tab_wilaya[58][30];
-
+    GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &info);
+    __CONIO_LEFT = info.srWindow.Left;
+    __CONIO_TOP = info.srWindow.Top;
+    __text_info.curx = info.dwCursorPosition.X - __CONIO_LEFT + 1;
+    __text_info.cury = info.dwCursorPosition.Y - __CONIO_TOP  + 1;
+    __text_info.attribute = info.wAttributes;
+    __text_info.screenwidth  = info.srWindow.Right - info.srWindow.Left + 1;
+    __text_info.screenheight = info.srWindow.Bottom - info.srWindow.Top + 1;
+}
 //Chaines des noms des fichiers (Eneignants Index, Bitmap) qui seront g�ner�s par la fonction du codage et de d�codage
 //nom de fichier d'enseignant cod�
 char fichEcode[cchaine] = "(null)";
