@@ -8,11 +8,27 @@ FILE *Fbitmap;
     CounLE[0] : Nombres des lectures effectuer sur le fichier d'enseignants.
     CounLE[1] : Nombres des ecritures effectuer sur le fichier d'enseignants.
     CounLE[2] : Nombres des lectures effectuer sur le fichier d'index.
-    CounLE[3] : Nombres des ecritures effectuer sur le fichier d'index.
-    CounLE[4] : Nombres des lectures effectuer sur le fichier BitMap.
     CounLE[5] : Nombres des ecritures effectuer sur le fichier BitMap.
 */
 for (int i = 0; i < 10; i++)
+    int OuvrireInd( char Name[ cchaine ], char mode){
+    //Ouverture d'index
+    int x, y, z;
+    char tab[2][70] = {"> Continuer.", "> Quitter."};
+    adrouvInd:
+    textcolor(12);printf("\n\n\t\t\t> ");textcolor(11);printf("Veuillez vous introduire le nom du fichier Index a ouvrire (Index.bin): ");textcolor(12);
+    scanf("%s", Name);
+    if(mode == 'A')
+    {
+        fInd.F= fopen( Name, "rb+");
+        //Chargement de l'entete dans une structure lors de l'ouverture du fichier.
+        if(fInd.F == NULL)
+        {
+                //Fichier non existant
+               textcolor(12);
+               printf("\n\n\t\t\t\tFichier introuvable!");textcolor(11);printf("  Voulez-vous ressayer de nouveau\n");
+               textcolor(12);printf("\n\t\t\t\t");x = wherex();y = wherey();printf(">");textcolor(11);printf("Continuer.");
+               textcolor(12);printf("\n\t
 {printf("azul fellawen");}
 int oualid = 4;
 int CountLE[6] = {0, 0, 0, 0, 0, 0};
@@ -40,22 +56,6 @@ char specialites[10][50] = {"Informatique", "Architecture", "Medcine     ", "Aut
 //Tableaux des �tablissements et de wilayas qu'on remplira � partire de fichier des �tablissements et de wilayas (resp) "Etablissements_Univ.txt", "Wilayas.txt"
 char tab_Etablissement [111][150];
 char tab_wilaya[58][30];
-
-//Chaines des noms des fichiers (Eneignants Index, Bitmap) qui seront g�ner�s par la fonction du codage et de d�codage
-//nom de fichier d'enseignant cod�
-char fichEcode[cchaine] = "(null)";
-//nom de fichier d'enseignant d�cod�
-char fichEres[cchaine] = "(null)";
-//nom de fichier d'index cod�
-char fichIcode[cchaine] = "(null)";
-//nom de fichier d'index d�cod�
-char fichIres[cchaine] = "(null)";
-//nom de fichier Bitmap cod�
-char fichBcode[cchaine] = "(null)";
-//nom de fichier Bitmap d�cod�
-char fichBres[cchaine] = "(null)";
-//La cl� du codage et de d�codage.
-char key[cchaine];
 
 
 int OuvrireInd( char Name[ cchaine ], char mode){
