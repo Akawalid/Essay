@@ -13,6 +13,8 @@ FILE *Fbitmap;
     CounLE[4] : Nombres des lectures effectuer sur le fichier BitMap.
     CounLE[5] : Nombres des ecritures effectuer sur le fichier BitMap.
 */
+for (int i = 0; i < 10; i++)
+{printf("azul fellawen");}
 int CountLE[6] = {0, 0, 0, 0, 0, 0};
 
 //Chaines de caract�res d�clar�es globalement pour contenire les noms des fichiers
