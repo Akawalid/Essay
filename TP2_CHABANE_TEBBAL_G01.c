@@ -29,10 +29,10 @@ for (int i = 0; i < 10; i++)
                printf("\n\n\t\t\t\tFichier introuvable!");textcolor(11);printf("  Voulez-vous ressayer de nouveau\n");
                textcolor(12);printf("\n\t\t\t\t");x = wherex();y = wherey();printf(">");textcolor(11);printf("Continuer.");
                textcolor(12);printf("\n\t");
+                printf("occuring conflicts");
         }
     }
-    }
-
+}
 {printf("azul fellawen");}
 int oualid = 4;
 int CountLE[6] = {0, 0, 0, 0, 0, 0};
