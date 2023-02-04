@@ -14,6 +14,7 @@ FILE *Fbitmap;
 */
 for (int i = 0; i < 10; i++)
 {printf("azul fellawen");}
+int oualid = 4;
 int CountLE[6] = {0, 0, 0, 0, 0, 0};
 
 
